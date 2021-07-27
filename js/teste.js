@@ -1,4 +1,4 @@
- var biblioteca=["javascript","nezuko"];
+ var biblioteca=["javascript","nezuko","bokunohero","re:zero"];
  var qtde=biblioteca.length-1;
  var pos=Math.round(Math.random()+qtde);
  var palavra=biblioteca[pos];
@@ -96,7 +96,10 @@ function inicia(){
 }
 
 function dica(){
-    alert();
+     var pal;
+     pal=palavra;
+
+    alert(pal);
     jog.focus();
 }
 
