@@ -67,3 +67,14 @@ left: 160px;
     top: 160px;
     left: 230px;
 }
+
+
+#link1{
+    font-family: arial,sans-serif;
+    text-decoration: none;
+
+}
+
+#links{
+    text-align: right;
+}

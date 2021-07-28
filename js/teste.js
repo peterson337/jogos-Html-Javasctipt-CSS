@@ -10,6 +10,7 @@
  var jogando=false;
  var jog;
  
+ 
 
 
  function defineLetras(l){
@@ -52,6 +53,8 @@ function jogar(){
             erros++;
          if(erros<7){
              desenhos[erros].style.display="block";
+             
+             
 
          }else{
             document.getElementById("dvmsg").innerHTML="PERDEU!";
@@ -103,8 +106,12 @@ function dica(){
     jog.focus();
 }
 
-
+    
+    
+   
 window.addEventListener("load",inicia);
+
+
 
 
 
