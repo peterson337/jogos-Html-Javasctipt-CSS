@@ -55,7 +55,7 @@ function jogar(){
              desenhos[erros].style.display="block";
              
              
-
+//  Não esqucer de mexer no else e if.
          }else{
             document.getElementById("dvmsg").innerHTML="PERDEU!";
              jogando=false;

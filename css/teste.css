@@ -69,12 +69,10 @@ left: 160px;
 }
 
 
-#link1{
-    font-family: arial,sans-serif;
+.linksDeJogo{
+    color: rgb(0, 174, 255);
     text-decoration: none;
-
-}
-
-#links{
     text-align: right;
+    font-family: Arial, sans-serif;
+   
 }
