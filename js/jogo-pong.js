@@ -37,10 +37,16 @@ jogo=false;
 
 function controlajog(){
     if(jogo){
-        posJogadorY+=velJogador*dirJy;
-        vjogador.style.top=posJogadorY+"Px";
-    }
-}
+        posJogadorY+=velJogador*dirJy; 
+                posJogadorY+=velJogador*dirJy;
+                if(((posJogadorY+barraH)>= campoH)||((posJogadorY)<= 0)){
+                    posJogadorY+=(velJogador*dirJy)*(-1);
+                }
+                vjogador.style.top=posJogadorY+"Px";
+            } 
+        }
+    
+
 
 function teclaDw(){
     tecla=event.keyCode;
@@ -75,7 +81,7 @@ function iniciaJogo(){
     dirJy=0
     posBolaX=posBolaIniX;
     posBolaY=posBolaIniY;
-    posJogadorY=0;
+    posJogadorY=posJogIniY;
     posCpuY=posCpuIniY;
     game();
   }
