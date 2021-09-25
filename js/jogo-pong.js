@@ -120,12 +120,8 @@ function controlaBola(){
         posBolaY=posBolaIniY;
         posJogadorY=posJogIniY;
         posCpuY=posCpuIniY; 
-       // if(ponto){
         pontos++;
-    //}else if(!ponto){
-     //   ponto=-1;
-   // }
-        clpontosDaCpu.value=pontos;
+        clpontosDaCpu.value=pontos++;
         jogo=false;
         vjogador.style.top=posJogadorY+"Px";
         vcpu.style.top=posCpuY+"Px";
