@@ -36,6 +36,7 @@ body{
     width: 20px;
     height: 20px;
     background-color: grey;
+    border-radius:50%;
 }
 
 .barra{
@@ -52,4 +53,14 @@ body{
 
 .direita{
     left: 930px;
+}
+
+#pontosDaCpu{
+    position: absolute;
+   right: 300px;
+}
+
+.pontosDaCpuNo{
+    position: absolute;
+    right: 409px;
 }
