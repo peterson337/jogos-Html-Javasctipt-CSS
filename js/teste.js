@@ -59,14 +59,14 @@ function jogar(){
          }else{
             document.getElementById("dvmsg").innerHTML="PERDEU!";
              jogando=false;
-             jogar=false;
+            // jogar=false;
          }
         }
         if(acertos==tam){
             //document.getElementById("dvmsg").innerHTML="";
             document.getElementById("dvmsg").innerHTML="GANHOU!";
             jogando=false;
-            jogar=false;
+            //jogar=false;
         }
     }
 }

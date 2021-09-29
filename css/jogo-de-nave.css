@@ -6,3 +6,32 @@
     color: rgb(0, 183, 255);
 
 }
+
+body{
+    overflow-x:hidden;
+    overflow-y: hidden;
+    background-color: white;
+}
+
+#naveJog{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    content:url(https://w7.pngwing.com/pngs/735/1012/png-transparent-pixel-art-others-angle-video-game-tie.png);
+ /* Nave do star wars, nave do império.
+https://w7.pngwing.com/pngs/735/1012/png-transparent-pixel-art-others-angle-video-game-tie.png
+
+ Outra nave.
+ https://i.pinimg.com/originals/8f/ab/f2/8fabf2eb407b715315a49f4c67ac4908.gif
+ */
+}
+
+.telaMsg{
+    position: absolute;
+    margin-left: -25%;
+    top: 50px;
+    left: 50px;
+    width: 720px;
+    height: 620px;
+    display: none;
+}
