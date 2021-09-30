@@ -1,7 +1,14 @@
 var dirlyJ,dirlxJ,jog,velJ,pjx,pjy;
 var tamTelaW,tamTelaH;
+var tam;
+var pt
 var jogo;
 var frames;
+var t;
+var att1;
+var att2;
+var tiros;
+var velT;
 
 function teclaDw() {
     var tecla=event.keyCode;
@@ -16,7 +23,7 @@ function teclaDw() {
         dirlxJ=1;
     }
     if(tecla==32){//Espaço/tiro
-
+      atira(pjx+17,pjy);
     }
 }
 
@@ -31,6 +38,34 @@ function teclaUp(){
     }
 }
 
+function atira(x,y){
+  t=document.createElement("div");
+  att1=document.createAttribute("class");
+  att2=document.createAttribute("style");
+  att1.value="tiroJog";
+  att2.value="top:"+y+"px;left:"+x+"px";
+  t.setAttributeNode(att1);
+  t.setAttributeNode(att2);
+  document.body.appendChild(t);
+}
+
+function controlaTiros(){
+   tiros=document.getElementsByClassName("tiroJog");
+   tam=tiros.length;
+   for(var i=0;i<tam;i++){
+     if (tiros[i]){
+       pt=tiros[i].offsetTop;
+       pt-=velT;
+       tiros[i].style.top=pt+"px";
+       if(pt<0){
+         //Outor jeito de remover tiros.
+         //document.body.removeChild(tiros[i]);
+         tiros[i].remove();
+       }
+     }
+   }
+}
+
 function controlaJogador(){
    pjy+=dirlyJ*velJ;
     pjx+=dirlxJ*velJ;
@@ -41,6 +76,7 @@ function gameloop(){
     if(jogo){
    //Funções de contole
  controlaJogador();
+ controlaTiros();
 }
 frames=requestAnimationFrame(gameloop);
 }
@@ -56,7 +92,7 @@ function inicia(){
   dirlxJ=dirlyJ=0;
   pjx=tamTelaW/2;
   pjy=tamTelaH/2;
-  velJ=5;
+  velJ=velT=5;
   jog=document.getElementById("naveJog");
   jog.style.top=pjy+"px";
   jog.style.left=pjx+"px"; 
