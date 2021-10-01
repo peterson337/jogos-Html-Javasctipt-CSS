@@ -9,6 +9,13 @@ var att1;
 var att2;
 var tiros;
 var velT;
+var x,y
+var bomba;
+var contBombas,painelContBombas,velB,tmpCriaBomba;
+var bombasTotal;
+var pi
+var vidaPlaneta;
+
 
 function teclaDw() {
     var tecla=event.keyCode;
@@ -36,6 +43,38 @@ function teclaUp(){
     if((tecla==37)||(tecla==39)){//Esquerda
         dirlxJ=0;
     }
+}
+
+function criaBomba(){
+  if(jogo){
+     y=0;
+     x=Math.random()*tamTelaW;
+     bomba=document.createElement("div");
+     att1=document.createAttribute("class");
+     att2=document.createAttribute("style");
+     att1.value="bomba";
+     att2.value="top:"+y+"px;left:"+x+"px;";
+     bomba.setAttributeNode(att1);
+     bomba.setAttributeNode(att2); 
+     document.body.appendChild(bomba);
+     contBombas--;
+  }
+}
+
+function controlaBomba(){
+  bombasTotal=document.getElementsByClassName("bomba");
+  tam=bombasTotal.length;
+  for(var i=0;i<tam;i++){
+    if(bombasTotal[i]){
+      pi=bombasTotal[i].offsetTop;
+      pi+=velB;
+      bombasTotal[i].style.top=pi+"px";
+      if(pi>tamTelaH){
+        vidaPlaneta=-10;
+        bombasTotal[i].remove();
+      }
+    }
+  }
 }
 
 function atira(x,y){
@@ -77,6 +116,7 @@ function gameloop(){
    //Funções de contole
  controlaJogador();
  controlaTiros();
+  controlaBomba();
 }
 frames=requestAnimationFrame(gameloop);
 }
@@ -96,6 +136,16 @@ function inicia(){
   jog=document.getElementById("naveJog");
   jog.style.top=pjy+"px";
   jog.style.left=pjx+"px"; 
+
+// Controles das bombas
+ clearInterval(tmpCriaBomba);
+ contBombas=150;
+ velB=3;
+ tmpCriaBomba=setInterval(criaBomba,1700);
+
+ //Controle de vida do planeta
+vidaPlaneta=300;
+
   gameloop();
 }
 
