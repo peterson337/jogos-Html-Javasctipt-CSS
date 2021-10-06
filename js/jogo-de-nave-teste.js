@@ -96,6 +96,7 @@ function controlaTiros(){
        pt=tiros[i].offsetTop;
        pt-=velT;
        tiros[i].style.top=pt+"px";
+       colisaoTiroBomba(tiros[i]);
        if(pt<0){
          //Outor jeito de remover tiros.
          //document.body.removeChild(tiros[i]);
@@ -103,6 +104,28 @@ function controlaTiros(){
        }
      }
    }
+}
+
+function colisaoTiroBomba(tiro){
+    tam=bombasTotal.length;
+    for(var i=0;i<tam;i++){
+      if(bombasTotal[i]){
+        if(
+          (
+          (tiro.offsetTop<=(bombasTotal[i].offsetTop+40))&& //Cima tiro com baixo bomba
+          ((tiro.offsetTop+6)>=(bombasTotal[i].offsetTop)) //Baixo tiro com cima bomba
+        )
+        &&
+        (
+          (tiro.offsetLeft<=(bombasTotal[i].offsetLeft+24))&& //Esquerda tiro com direita bomba
+          ((tiro.offsetLeft+6)>=(bombasTotal[i].offsetLeft))  //Direita tiro com esquerda bomba
+        )
+        ){
+          bombasTotal[i].remove();
+          tiro.remove();
+        }
+      }
+    }
 }
 
 function controlaJogador(){
@@ -116,7 +139,7 @@ function gameloop(){
    //Funções de contole
  controlaJogador();
  controlaTiros();
-  controlaBomba();
+ controlaBomba();
 }
 frames=requestAnimationFrame(gameloop);
 }
@@ -141,7 +164,7 @@ function inicia(){
  clearInterval(tmpCriaBomba);
  contBombas=150;
  velB=3;
- tmpCriaBomba=setInterval(criaBomba,1700);
+ tmpCriaBomba=setInterval(criaBomba,1799); //1700
 
  //Controle de vida do planeta
 vidaPlaneta=300;
